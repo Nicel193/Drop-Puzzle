@@ -1,4 +1,5 @@
-﻿using Code.Runtime.Configs;
+﻿using System;
+using Code.Runtime.Configs;
 using Code.Runtime.Interactors;
 using Code.Runtime.Repositories;
 using Code.Runtime.Services.AudioService;
@@ -35,7 +36,7 @@ namespace Code.Runtime.Infrastructure.States
             InteractorsInitializer.Initialize(playerProgress, _persistentProgressService.InteractorContainer,
                 _staticDataService, _saveLoadService);
             _audioService.Initialize();
-
+            
             _sceneLoader.Load(SceneName.Menu.ToString());
         }
 

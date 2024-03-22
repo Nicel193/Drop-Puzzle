@@ -23,7 +23,7 @@ namespace Code.Runtime.UI.Buttons
         private void OnDisable() =>
             button.onClick.RemoveListener(ChangeState);
 
-        private void ChangeState() =>
+        protected virtual void ChangeState() =>
             _gameStateMachine.Enter<LoadSceneState, string>(nextScene.ToString());
     }
 }

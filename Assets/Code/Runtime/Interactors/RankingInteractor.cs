@@ -41,9 +41,9 @@ namespace Code.Runtime.Interactors
 
         private IEnumerable<RecordData> GetRecordsForWeek(DateTime startDate)
         {
-            DateTime endDate = startDate.AddDays(7);
+            DateTime endDate = startDate.AddDays(-7).Date;
             return _repository.RecordsData
-                .Where(r => r.RecordDate.Date >= startDate.Date && r.RecordDate.Date < endDate.Date);
+                .Where(r => r.RecordDate.Date >= endDate && r.RecordDate.Date <= startDate.Date);
         }
         
         public enum SortByDate

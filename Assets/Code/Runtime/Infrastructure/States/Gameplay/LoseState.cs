@@ -42,8 +42,7 @@ namespace Code.Runtime.Infrastructure.States.Gameplay
             _hudFactory.InstantiatedPrefab.ChangeToLose();
 
             ScoreInteractor scoreInteractor = _progressService.InteractorContainer.Get<ScoreInteractor>();
-
-            _progressService.InteractorContainer.Get<GameplayShapesInteractor>().ClearShapesData();
+            
             _progressService.InteractorContainer.Get<RankingInteractor>().AddRecord(scoreInteractor.GetCurrentScore());
 
             scoreInteractor.ResetCurrentScore();

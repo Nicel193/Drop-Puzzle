@@ -44,9 +44,12 @@ namespace Code.Runtime.UI.Buttons
 
         private void Play()
         {
-            _currentTween = this.transform.DOPunchScale(
-                _staticDataService.AnimationConfig.GetPunchAnimationScaleFactor(),
-                _staticDataService.AnimationConfig.PunchAnimationScaleDuration);
+            if (_currentTween == null || !_currentTween.IsActive())
+            {
+                _currentTween = this.transform.DOPunchScale(
+                    _staticDataService.AnimationConfig.GetPunchAnimationScaleFactor(),
+                    _staticDataService.AnimationConfig.PunchAnimationScaleDuration);
+            }
 
             PlaySfx();
         }
